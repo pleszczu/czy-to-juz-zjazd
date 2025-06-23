@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Odliczanie do 8 czerwca 2026</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+      background-color: #f0f0f0;
+    }
+    #countdown {
+      font-size: 2em;
+      background-color: white;
+      display: inline-block;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Odliczanie do 8 czerwca 2026</h1>
+  <div id="countdown">Ładowanie...</div>
+
+  <script>
+    const countdownElement = document.getElementById('countdown');
+    const targetDate = new Date('2026-06-08T00:00:00');
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = targetDate - now;
+
+      if (diff <= 0) {
+        countdownElement.innerText = "Nadszedł 8 czerwca 2026!";
+        clearInterval(intervalId);
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      countdownElement.innerText = `${days} dni, ${hours} godz., ${minutes} min, ${seconds} sek`;
+    }
+
+    // Pierwsze wywołanie natychmiast
+    updateCountdown();
+
+    // Aktualizacja co sekundę
+    const intervalId = setInterval(updateCountdown, 1000);
+  </script>
+
+</body>
+</html>
