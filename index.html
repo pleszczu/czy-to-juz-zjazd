@@ -23,6 +23,7 @@
 <body>
 
   <h1>Czy to już czas na zjazd?</h1>
+  <h2 id="subtitle">Jeszcze nie. Do spotkania pozostało</h2>
   <div id="countdown">Ładowanie...</div>
 
   <script>
@@ -40,17 +41,14 @@
       }
 
       const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((diff / (1000 * 60)) % 60);
-      const seconds = Math.floor((diff / 1000) % 60);
+      const hours = String(Math.floor((diff / (1000 * 60 * 60)) % 24)).padStart(2, '0');
+      const minutes = String(Math.floor((diff / (1000 * 60)) % 60)).padStart(2, '0');
+      //const seconds = Math.floor((diff / 1000) % 60);
 
-      countdownElement.innerText = `${days} dni, ${hours} godz., ${minutes} min, ${seconds} sek`;
+      countdownElement.innerText = `${days} dni i ${hours}:${minutes}`;
     }
 
-    // Pierwsze wywołanie natychmiast
     updateCountdown();
-
-    // Aktualizacja co sekundę
     const intervalId = setInterval(updateCountdown, 5000);
   </script>
 
