@@ -2,7 +2,7 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8">
-  <title>Odliczanie do 8 czerwca 2026</title>
+  <title>Czy to już czas?</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -22,19 +22,19 @@
 </head>
 <body>
 
-  <h1>Odliczanie do 8 czerwca 2026</h1>
+  <h1>Czy to już czas na zjazd?</h1>
   <div id="countdown">Ładowanie...</div>
 
   <script>
     const countdownElement = document.getElementById('countdown');
-    const targetDate = new Date('2026-06-08T00:00:00');
+    const targetDate = new Date('2026-06-05T00:00:00');
 
     function updateCountdown() {
       const now = new Date();
       const diff = targetDate - now;
 
       if (diff <= 0) {
-        countdownElement.innerText = "Nadszedł 8 czerwca 2026!";
+        countdownElement.innerText = "Nadszedł 5 czerwca 2026!";
         clearInterval(intervalId);
         return;
       }
@@ -51,7 +51,7 @@
     updateCountdown();
 
     // Aktualizacja co sekundę
-    const intervalId = setInterval(updateCountdown, 1000);
+    const intervalId = setInterval(updateCountdown, 5000);
   </script>
 
 </body>
